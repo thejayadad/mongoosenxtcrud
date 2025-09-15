@@ -10,6 +10,9 @@ export default function Home() {
   return (
      <main className=" bg-sky-600 row-span-11 h-full">
       <ActionBar />
+      <section className="mx-auto max-w-screen-lg">
+        <LessonsList />
+      </section>
     </main>
   );
 }
