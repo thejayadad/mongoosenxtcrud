@@ -6,6 +6,7 @@ import { listCards } from "@/lib/actions/list-cards";
 import Lesson from "@/lib/models/deck-schema";
 import { NewCardForm } from "@/components/card/card-form";
 import { ToggleLearnedForm } from "@/components/card/toggle-learned";
+import { DeleteCardForm } from "@/components/card/delete-card";
 
 
 
@@ -14,7 +15,7 @@ export default async function LessonDetailPage({
 }: {
   params: { id: string };
 }) {
-  const { id } = params; // ✅ no await
+  const { id } = await params; // ✅ no await
 
   if (!mongoose.Types.ObjectId.isValid(id)) return notFound();
 
@@ -53,6 +54,8 @@ export default async function LessonDetailPage({
                 <div className="text-xs mt-1">
                   Learned: {c.learned ? "Yes" : "No"} ·{" "}
                   <ToggleLearnedForm lessonId={id} cardId={c.id} learned={c.learned} />
+                    <DeleteCardForm lessonId={id /* or lessonId */} cardId={c.id} />
+
                 </div>
               </li>
             ))}
