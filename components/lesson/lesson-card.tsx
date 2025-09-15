@@ -30,7 +30,6 @@ type Props = {
 export function LessonCard({
   id,
   title,
-  owner = "",
   cardCount,
   noteCount = 0,
   rating = 0,
@@ -67,9 +66,10 @@ export function LessonCard({
 
         {/* Middle content */}
         <div className="flex-1 px-4 py-3">
-          <h3 className="text-base font-semibold text-gray-900 line-clamp-1">{title}</h3>
+          <Link 
+          href={`/${id}`}
+          className="text-base font-semibold text-gray-900 line-clamp-1">{title}</Link>
           <div className="mt-1 flex items-center gap-3 text-sm text-gray-500">
-            {owner && <span className="line-clamp-1">{owner}</span>}
             <span className="inline-flex items-center gap-1">
               <FiLayers className="h-4 w-4" aria-hidden /> {cardCount}
             </span>

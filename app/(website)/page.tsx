@@ -1,5 +1,4 @@
 import LessonsList from "@/components/lesson/lesson-list";
-import LessonsListSkeleton from "@/components/lesson/lesson-skeleton";
 import { ActionBar } from "@/components/ui/action-bar";
 import { Suspense } from "react";
 
@@ -10,7 +9,7 @@ export default function Home() {
   return (
      <main className=" bg-sky-600 row-span-11 h-full">
       <ActionBar />
-      <section className="mx-auto max-w-screen-lg">
+      <section className="mx-auto max-w-screen-lg px-4 lg:px-0">
         <LessonsList />
       </section>
     </main>
